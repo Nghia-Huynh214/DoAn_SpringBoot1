@@ -1,0 +1,110 @@
+.list_create {
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    margin-top: 10px;
+}
+.btn_create {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn_create2, .btn_create {
+    width: 70%;
+}
+
+.delete_product {
+    width: 17%;
+}
+
+.btn_id {
+    width: 40px;
+}
+
+.btn_id_delete {
+    width: 100%;
+}
+
+.btn_product {
+    margin-left: 10px;
+}
+
+#admin_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#admin_create, #admin_update, #admin_delete {
+    background-color: #C5D3E8;
+    width: 32%;
+    border-radius: 8px;
+}
+
+.btn_id_create, .btn_img_create, .btn_brand_create,
+.btn_name_create, .btn_price_create, .btn_apply_create {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    align-items: center;
+}
+
+.heading_delete {
+    margin-top: 30%;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.btn_name_admin {
+    margin-top: 10px;
+}
+
+.btn_apply_create {
+    justify-content: space-evenly;
+}
+
+.heading_admin {
+    margin-top: 10px;
+}
+
+.heading_create_admin {
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+.btn_admin {
+    width: 70%;
+}
+
+.btn_create_admin {
+    padding: 10px;
+    background-color: #30e696;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn_create_admin:hover {
+    cursor: pointer;
+    background-color: #00FF9C;
+}
+
+.btn_cancel {
+    padding: 10px;
+    background-color: #FF4545;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn_cancel:hover {
+    cursor: pointer;
+    background-color: #C62E2E;
+}

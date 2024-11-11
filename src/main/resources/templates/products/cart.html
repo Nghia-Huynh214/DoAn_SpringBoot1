@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <title>Shopping Cart </title>
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div id="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <img class="navbar_img" th:src="@{'/img/logo.jpg'}" alt="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/products/home">HN Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active"  href="/products/home">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/products/apple">Apple</a></li>
+                                <li><a class="dropdown-item" href="/products/samsung">Samsung</a></li>
+                                <li><a class="dropdown-item" href="/products/oppo">Oppo</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Contact</a>
+
+                        </li>
+                    </ul>
+                    <a class="create_product" href="/products/cart">Cart</a>
+                    <div class="cart_navbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                        </svg>
+                    </div>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <div class="admin_navbar">
+                        <div class="admin_user">
+                            <a class="create_product" href="/products/admin">Admin</a>
+                        </div>
+                        <div class="icon_user">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
+                                <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="cart_product">
+        <h1 class="heading_product">Your Shopping Cart</h1>
+
+        <div id="product-list">
+            <!-- Product items will be listed here -->
+            <div class="product" data-id="1">
+                <img th:src="@{'/img/product-img-5.jpg'}" alt="">
+                <div class="product-details">
+                    <h3>Oppo Reno8 Pro 5G</h3>
+                    <p>Price: $19.99</p>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="remove">Remove</button>
+                </div>
+            </div>
+            <div class="product" data-id="2">
+                <img th:src="@{'/img/product-img-13.jpg'}" alt="">
+                <div class="product-details">
+                    <h3>Samsung M23 5G</h3>
+                    <p>Price: $24.99</p>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">2</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="remove">Remove</button>
+                </div>
+            </div>
+            <!-- Add more product items as needed -->
+        </div>
+
+        <div class="buttons">
+        </div>
+
+        <script>
+            // Function to update quantity
+            function updateQuantity(productElement, change) {
+                let quantityElement = productElement.querySelector('.quantity');
+                let quantity = parseInt(quantityElement.textContent) + change;
+                if (quantity > 0) {
+                    quantityElement.textContent = quantity;
+                }
+            }
+
+            // Add functionality to quantity buttons and remove button
+            document.getElementById('product-list').addEventListener('click', function(e) {
+                if (e.target.classList.contains('increase')) {
+                    updateQuantity(e.target.closest('.product'), 1);
+                } else if (e.target.classList.contains('decrease')) {
+                    updateQuantity(e.target.closest('.product'), -1);
+                } else if (e.target.classList.contains('remove')) {
+                    e.target.closest('.product').remove();
+                }
+            });
+        </script>
+    </div>
+
+
+<script src=”https://code.jquery.com/jquery.min.js”></script>
+<script src=”js/bootstrap.min.js”></script>
+</body>
+</html>
