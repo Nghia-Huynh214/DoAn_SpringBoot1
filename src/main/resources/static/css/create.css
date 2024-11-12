@@ -89,6 +89,7 @@ label {
     color: white;
     border-radius: 10px;
     text-decoration: none;
+    border: none;
 }
 
 .btn_create_admin:hover {
@@ -108,3 +109,4 @@ label {
     cursor: pointer;
     background-color: #C62E2E;
 }
+

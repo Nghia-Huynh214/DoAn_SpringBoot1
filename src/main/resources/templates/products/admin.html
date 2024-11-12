@@ -69,33 +69,33 @@
     <h3 class="heading_admin">Admin Panel</h3>
     <div id="admin_container">
         <!--Create Product-->
-        <div id="admin_create">
+        <form id="admin_create" th:action="@{/products/add}" th:object="${product}" method="post">
             <h1 class="heading_create_admin">Create Product</h1>
-            <div class="btn_id_create">
+            <label class="btn_id_create">
                 <p class="btn_name_admin">ID Product: </p>
                 <input class="btn_admin" type="number" required></input>
-            </div>
-            <div class="btn_img_create">
-                <p class="btn_name_admin">Img Product: </p>
-                <input class="btn_admin" type="file" required>
-            </div>
-            <div class="btn_brand_create">
+            </label>
+            <label class="btn_img_create">
+                <p class="btn_name_admin" >Img Product: </p>
+                <input class="btn_admin" type="file"   required>
+            </label>
+            <label class="btn_brand_create">
                 <p class="btn_name_admin">Brand Product: </p>
                 <input class="btn_admin" type="text" required>
-            </div>
-            <div class="btn_name_create">
+            </label>
+            <label class="btn_name_create">
                 <p class="btn_name_admin">Name Product: </p>
                 <input class="btn_admin" type="text" required>
-            </div>
-            <div class="btn_price_create">
+            </label>
+            <label class="btn_price_create">
                 <p class="btn_name_admin">Price Product: </p>
                 <input class="btn_admin" type="number" required>
-            </div>
-            <div class="btn_apply_create">
-                <a class="btn_create_admin">Create Product</a>
+            </label>
+            <label class="btn_apply_create">
+                <button class="btn_create_admin">Create Product</button>
                 <a href="/products/home" class="btn_cancel">Cancel Create</a>
-            </div>
-        </div>
+            </label>
+        </form>
 
         <!--Update product-->
         <div id="admin_update">
@@ -121,7 +121,7 @@
                 <input class="btn_admin" type="number"required>
             </div>
             <div class="btn_apply_create">
-                <a class="btn_create_admin">Update Product</a>
+                <button class="btn_create_admin">Update Product</button>
                 <a href="/products/home" class="btn_cancel">Cancel Update</a>
             </div>
         </div>
@@ -138,10 +138,40 @@
                 Are you sure you want to delete this product?
             </p>
             <div class="btn_apply_create">
-                <a class="btn_create_admin">Delete Product</a>
+                <button class="btn_create_admin">Delete Product</button>
                 <a href="/products/home" class="btn_cancel">Cancel Delete</a>
             </div>
         </div>
+    </div>
+    <div id="admin_edit">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Price</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product, iterStat : ${products}">
+                <td th:text = "${product.id}"></td>
+                <td>
+                    <img th:src="@{'/img/' + ${product.img_product}}" alt="..." width="100">
+                </td>
+                <td th:text = "${product.brand_product}"></td>
+                <td th:text = "${product.name_product}"></td>
+                <td th:text = "@{${product.price_product} + '$'}"></td>
+
+                <td style="white-space: nowrap">
+                    <a class="btn btn-primary  btn_create_admin" th:hrf="@{/products/edit(id=${product.id})}">Edit</a>
+                    <a class="btn btn-danger btn-sm btn_cancel" th:hrf="@{/products/edit(id=${product.id})}"  onclick="return comfirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <script src=”https://code.jquery.com/jquery.min.js”></script>
     <script src=”js/bootstrap.min.js”></script>

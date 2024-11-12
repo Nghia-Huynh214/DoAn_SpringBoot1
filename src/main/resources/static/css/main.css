@@ -1,8 +1,13 @@
 #navbar, #slider, #products,#container ,
 #footer, #cart_product, #admin_panel,
-#admin_container, #apple, #samsung, #container_slider2 , .heading_admin {
+#admin_container, #apple, #samsung, #container_slider2, #admin_edit , .heading_admin{
     padding-left: 10%;
     padding-right: 10%;
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: rgb(208 223 238) !important;
 }
 
 #container_slider {

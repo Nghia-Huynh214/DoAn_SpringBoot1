@@ -69,13 +69,13 @@
     <div id="cart_product">
         <h1 class="heading_product">Your Shopping Cart</h1>
 
-        <div id="product-list">
+        <div id="product-list" th:each="product, iterStat : ${products}">
             <!-- Product items will be listed here -->
-            <div class="product" data-id="1">
-                <img th:src="@{'/img/product-img-5.jpg'}" alt="">
+            <div class="product" data-id="1"  >
+                <img th:src="@{'/img/' + ${product.img_product}}" alt="">
                 <div class="product-details">
-                    <h3>Oppo Reno8 Pro 5G</h3>
-                    <p>Price: $19.99</p>
+                    <h3 th:text="${product.name_product}"></h3>
+                    <p th:text = "@{'Price: ' + ${product.price_product} + '$'}">Price: </p>
                     <div class="quantity-control">
                         <button class="decrease">-</button>
                         <span class="quantity">1</span>
@@ -84,20 +84,20 @@
                     <button class="remove">Remove</button>
                 </div>
             </div>
-            <div class="product" data-id="2">
-                <img th:src="@{'/img/product-img-13.jpg'}" alt="">
-                <div class="product-details">
-                    <h3>Samsung M23 5G</h3>
-                    <p>Price: $24.99</p>
-                    <div class="quantity-control">
-                        <button class="decrease">-</button>
-                        <span class="quantity">2</span>
-                        <button class="increase">+</button>
-                    </div>
-                    <button class="remove">Remove</button>
-                </div>
-            </div>
-            <!-- Add more product items as needed -->
+<!--            <div class="product" data-id="2">-->
+<!--                <img th:src="@{'/img/product-img-13.jpg'}" alt="">-->
+<!--                <div class="product-details">-->
+<!--                    <h3>Samsung M23 5G</h3>-->
+<!--                    <p>Price: $24.99</p>-->
+<!--                    <div class="quantity-control">-->
+<!--                        <button class="decrease">-</button>-->
+<!--                        <span class="quantity">2</span>-->
+<!--                        <button class="increase">+</button>-->
+<!--                    </div>-->
+<!--                    <button class="remove">Remove</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; Add more product items as needed &ndash;&gt;-->
         </div>
 
         <div class="buttons">
