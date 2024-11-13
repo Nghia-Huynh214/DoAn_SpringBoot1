@@ -66,34 +66,44 @@
     </div>
   </nav>
 </div>
-<h3 class="heading_admin">Admin Panel</h3>
-<div id="admin_edit">
-  <a class="btn btn-primary" href="/products/create">Create Product</a>
-  <hr>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Image</th>
-      <th>Brand</th>
-      <th>Name</th>
-      <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="product, iterStat : ${products}">
-      <td>
-        <img th:src="@{'/img/' + ${product.img_product}}" alt="..." width="100">
-      </td>
-      <td th:text = "${product.brand_product}"></td>
-      <td th:text = "${product.name_product}"></td>
-      <td th:text = "@{${product.price_product} + '$'}"></td>
-      <td style="white-space: nowrap">
-        <a class="btn_create" th:hrf="@{/products/edit(id=${product.id})}">Edit</a>
-        <a class="btn_create2" th:hrf="@{/products/edit(id=${product.id})}"  onclick="return comfirm('Are you sure?')">Delete</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<h3 class="heading_admin">Create Panel</h3>
+<div id="admin_container">
+  <!--Create Product-->
+  <form id="admin_create" th:action="@{/products/add}" th:object="${product}" method="post">
+    <h1 class="heading_create_admin">Create Product</h1>
+
+    <label class="btn_id_create">
+      <p class="btn_name_admin">ID Product: </p>
+      <input class="btn_admin" type="number" th:field="*{id}" required />
+    </label>
+
+    <label class="btn_img_create">
+      <p class="btn_name_admin">Img Product: </p>
+      <input class="btn_admin" type="file" th:field="*{img_product}" required />
+    </label>
+
+    <label class="btn_brand_create">
+      <p class="btn_name_admin">Brand Product: </p>
+      <input class="btn_admin" type="text" th:field="*{brand_product}" required />
+    </label>
+
+    <label class="btn_name_create">
+      <p class="btn_name_admin">Name Product: </p>
+      <input class="btn_admin" type="text" th:field="*{name_product}" required />
+    </label>
+
+    <label class="btn_price_create">
+      <p class="btn_name_admin">Price Product: </p>
+      <input class="btn_admin" type="number" th:field="*{price_product}" required />
+    </label>
+
+    <label class="btn_apply_create">
+      <button type="submit" class="btn_create_admin">Create Product</button>
+      <a href="/products/home" class="btn_cancel">Cancel Create</a>
+    </label>
+  </form>
+
+
 </div>
 <script src=”https://code.jquery.com/jquery.min.js”></script>
 <script src=”js/bootstrap.min.js”></script>

@@ -29,17 +29,30 @@ public class ProductController {
         return "products/home";
     }
 
-//    @GetMapping("/admin")
-//    public String adminProductList(Model model) {
+    @GetMapping("/admin")
+    public String adminProductList(Model model) {
+        List<Product> products = repo.findAll();
+        model.addAttribute("products", products);
+        return "products/admin";
+    }
+
+//    @GetMapping("/create")
+//    public String createProductList(Model model) {
 //        List<Product> products = repo.findAll();
 //        model.addAttribute("products", products);
-//        return "products/admin";
+//        return "products/create";
 //    }
 
-    @GetMapping("/admin")
+    @GetMapping("/create")
     public String showCreateProductForm(Model model) {
         model.addAttribute("product", new Product()); // Đảm bảo tạo đối tượng Product
-        return "products/admin";
+        return "products/create";
+    }
+
+    @PostMapping("/add")
+    public String addProduct(@ModelAttribute Product product) {
+        productsRepository.save(product);
+        return "redirect:/products/home";
     }
 
     @GetMapping("/cart")
@@ -68,12 +81,5 @@ public class ProductController {
         List<Product> products = repo.findAll();
         model.addAttribute("products", products);
         return "products/oppo";
-    }
-
-
-    @PostMapping("/add")
-    public String addProduct(@ModelAttribute Product product) {
-        productsRepository.save(product);
-        return "redirect:/products/home";
     }
 }

@@ -5,6 +5,9 @@
     padding-right: 10%;
 }
 
+
+
+
 .bg-body-tertiary {
     --bs-bg-opacity: 1;
     background-color: rgb(208 223 238) !important;
@@ -86,6 +89,7 @@
 
 .btn_create2:hover {
     background-color: #C62E2E;
+    cursor: pointer;
 }
 
 .btn_create2 {
