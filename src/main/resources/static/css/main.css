@@ -4,7 +4,24 @@
     padding-left: 10%;
     padding-right: 10%;
 }
+.login_admin, .register_admin {
+    width: 40%;
+    margin: auto;
+    background-color: #F4EDD3;
+    padding: 15px;
+    border-radius: 10px;
+}
 
+.login_register {
+    margin-left: 12px;
+}
+.login, .register {
+    text-decoration: none;
+    color: white;
+    background-color: #4f88e4;
+    padding: 4px;
+    border-radius: 5px;
+}
 
 .bg-body-tertiary {
     --bs-bg-opacity: 1;

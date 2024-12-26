@@ -72,11 +72,6 @@
   <form id="admin_create" th:action="@{/products/add}" th:object="${product}" method="post">
     <h1 class="heading_create_admin">Create Product</h1>
 
-<!--    <label class="btn_id_create">-->
-<!--      <p class="btn_name_admin">ID Product: </p>-->
-<!--      <input class="btn_admin" type="number" th:field="*{id}" required />-->
-<!--    </label>-->
-
     <label class="btn_img_create">
       <p class="btn_name_admin">Img Product: </p>
       <input class="btn_admin" type="file" th:field="*{img_product}" required />
